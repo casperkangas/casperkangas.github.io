@@ -40,11 +40,33 @@ nav>.nav-section {
 }
 
 #nav-link-section {
-    gap: 6rem;
+    gap: 3rem;
 }
 
 #nav-social-section {
     gap: 3rem;
+}
+
+#nav-link-section>a {
+    display: flex;
+    width: 200%;
+    min-width: fit-content;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#nav-social-section>a {
+    font-size: 2rem;
+    display: flex;
+    width: 200%;
+    min-width: fit-content;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#nav-social-section>a>i {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 #nav-logo-section,
@@ -57,6 +79,10 @@ nav>.nav-section {
     flex-grow: 1;
 }
 
+#nav-contact-section>a {
+    white-space: nowrap;
+}
+
 h1,
 h2,
 h3,
@@ -65,6 +91,7 @@ p,
 span {
     font-family: "Rubik", sans-serif;
     font-weight: 400;
+    font-size: 1.5rem;
     color: white;
 }
 
@@ -76,23 +103,33 @@ main {
     flex-grow: 1;
 }
 
-main > article {
+main>article {
     display: grid;
     height: 100%;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 2fr 1fr;
 }
 
-main > article > .article-section {
+main>article>.article-section {
     height: 100%;
 }
 
-main > article > .article-description-section,
-main > article > .article-nav-section {
+main>article>.article-description-section,
+main>article>.article-nav-section {
     border-left: 1px solid var(--border-color);
 }
 
-main > article > .article-title-section,
-main > article > .article-nav-section {
+main>article>.article-title-section,
+main>article>.article-nav-section {
     border-top: 1px solid var(--border-color);
+}
+
+main>article>.article-image-section {
+    overflow: hidden;
+}
+
+main>article>.article-image-section>img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
