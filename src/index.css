@@ -1,16 +1,87 @@
-/* index.css - responsive gray/blue theme with project cards */
+/* index.css - Global styles & theme */
 
-/* Global styles */
+/* Theme Colors */
+:root {
+  /* Background & Text */
+  --bg-color: #e0e7ff;
+  --text-color: #1e293b;
+
+  /* Accent & Borders */
+  --accent-color: #3b82f6;
+  --accent-color-dark: #2563eb;
+  --border-color: #3b82f6;
+
+  /* Button Text */
+  --button-text-color: #f0f4ff;
+
+  /* Project Card */
+  --card-bg-color: #f0f4ff;
+  --card-text-color: #1e293b;
+
+  /* Navbar & Footer */
+  --nav-bg-color: #1e293b;
+  --nav-text-color: #f0f4ff;
+  --nav-border-color: #3b82f6;
+
+  --footer-bg-color: #1e293b;
+  --footer-text-color: #f0f4ff;
+  --footer-border-color: #3b82f6;
+
+  /* Toggle track/thumb sizes */
+  --toggle-switch-width: 50px;
+  --toggle-switch-height: 24px;
+  --toggle-switch-padding: 2px;
+  --toggle-thumb-width: 20px;
+  --toggle-thumb-height: 20px;
+
+  /* Toggle colors */
+  --toggle-track-light: #3b82f6;
+  --toggle-track-dark: #2563eb;
+  --toggle-thumb-light: #ffffff;
+  --toggle-thumb-dark: #111827;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  --bg-color: #1e293b;
+  --text-color: #f0f4ff;
+
+  --accent-color: #3b82f6;
+  --accent-color-dark: #2563eb;
+  --border-color: #60a5fa;
+
+  --button-text-color: #f0f4ff;
+
+  --card-bg-color: #111827;
+  --card-text-color: #f0f4ff;
+
+  --nav-bg-color: #1e293b;
+  --nav-text-color: #f0f4ff;
+  --nav-border-color: #3b82f6;
+
+  --footer-bg-color: #111827;
+  --footer-text-color: #f0f4ff;
+  --footer-border-color: #3b82f6;
+
+  /* Toggle Switch */
+  --toggle-track-light: #2563eb;
+  --toggle-track-dark: #2563eb;
+  --toggle-thumb-light: #111827;
+  --toggle-thumb-dark: #ffffff;
+}
+
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #e0e7ff; /* light gray-blue */
-  color: #1e293b; /* dark slate-blue text */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
 }
 
 html {
-  scroll-behavior: smooth;  /* Smooth scrolling */
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -25,243 +96,47 @@ html {
   padding: 2rem;
 }
 
-/* Navbar */
-nav {
-  background-color: #1e293b; /* dark blue-gray */
-  color: #ffffff;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid #3b82f6; /* bright blue accent */
-}
-
-/* Navbar links container */
-.nav-links {
-  display: flex;
-  align-items: center; /* vertically center everything */
-}
-
-nav h2 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-/* Navbar links */
-nav a {
-  margin-left: 1rem;
-  color: white;
-  text-decoration: none;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -2px;
-  background-color: #3b82f6;
-  transition: width 0.3s ease;
-}
-
-nav a:hover {
-  color: #3b82f6;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* Hero Section */
-.hero {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 2rem;
-  padding: 2rem;
-  background-color: #f0f4ff; /* lighter blue */
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  flex-wrap: wrap; /* for responsiveness */
-}
-
-.hero-text {
-  flex: 1 1 300px;
-}
-
-.hero-text h1 {
-  margin: 0 0 1rem 0;
-  font-size: 2rem;
-}
-
-.hero-text p {
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
-}
-
 /* Buttons */
 .button {
-  background-color: #3b82f6;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-  margin-right: 1rem;
-}
-
-.button:hover {
-  background-color: #2563eb;
-}
-
-/* Profile Image */
-.profile-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #3b82f6;
-}
-
-/* Projects Section */
-.projects {
-  margin-top: 3rem;
-}
-
-.projects h2 {
-  color: #1e293b;
-  margin-bottom: 1rem;
-}
-
-/* Project cards */
-.project-card {
-  background-color: #f0f4ff;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  margin-bottom: 1rem;
-  transition: transform 0.2s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-3px);
-}
-
-/* Footer */
-footer {
-  margin-top: auto;
-  padding: 1rem 2rem;
-  background-color: #1e293b;
-  color: #ffffff;
-  text-align: center;
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hero img {
-    margin-top: 1rem;
-  }
-}
-
-body.dark-mode {
-  background-color: #1e293b;
-  color: #f0f4ff;
-}
-
-body.dark-mode nav {
-  background-color: #111827;
-  border-bottom-color: #2563eb;
-}
-
-body.dark-mode .hero {
-  background-color: #1f2937;
-  color: #f0f4ff;
-}
-
-body.dark-mode .project-card {
-  background-color: #111827;
-  color: #f0f4ff;
-}
-
-body.dark-mode footer {
-  background-color: #111827;
-}
-
-/* Dark/Light toggle button styled like navbar links */
-.theme-toggle {
-  margin-left: 1rem;
-  background: none;
-  border: none;
-  color: white;
-  font: inherit;
-  cursor: pointer;
-  position: relative;
-  transition: color 0.3s ease;
-  padding: 0; /* remove extra padding */
-}
-
-.theme-toggle::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -2px;
-  background-color: #3b82f6;
-  transition: width 0.3s ease;
-}
-
-.theme-toggle:hover {
-  color: #3b82f6;
-}
-
-.theme-toggle:hover::after {
-  width: 100%;
-}
-
-/* Toggle switch container */
-.toggle-switch {
-  width: 50px;
-  height: 24px;
-  background-color: #3b82f6;
+  padding: 0.75rem 1.5rem;
   border-radius: 999px;
+  border: none;
   cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1rem;
   display: inline-flex;
   align-items: center;
-  padding: 2px; /* padding so thumb doesn't touch edges */
-  margin-left: 1rem;
-  transition: background-color 0.3s ease;
-  box-sizing: border-box;
+  justify-content: center;
 }
 
-/* Thumb */
-.toggle-thumb {
-  width: 20px;
-  height: 20px;
+.button.primary {
+  background-color: var(--accent-color);
+  color: var(--button-text-color);
+}
+
+.button.primary:hover {
+  background-color: var(--accent-color-dark);
+  transform: translateY(-2px);
+}
+
+.button.secondary {
+  border: 2px solid var(--border-color);
+  color: var(--accent-color);
+  background: transparent;
+}
+
+.button.secondary:hover {
+  background-color: var(--accent-color);
+  color: var(--button-text-color);
+  transform: translateY(-2px);
+}
+
+/* Reusable */
+.profile-img {
   border-radius: 50%;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  background-color: #ffffff; /* default light mode */
-}
-
-/* Dark mode thumb */
-.toggle-thumb.dark {
-  transform: translateX(26px);
-  background-color: #111827; /* dark thumb for dark mode */
-}
-
-/* Light mode thumb */
-.toggle-thumb.light {
-  transform: translateX(0);
-  background-color: #ffffff; /* light thumb for light mode */
+  object-fit: cover;
+  border: 4px solid var(--accent-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }

@@ -1,0 +1,30 @@
+.projects {
+  margin-top: 3rem;
+  color: var(--text-color);
+}
+
+.projects h2 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--card-bg-color);
+  color: var(--card-text-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+}

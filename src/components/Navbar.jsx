@@ -1,3 +1,5 @@
+import "./Navbar.css";
+
 export default function Navbar({ darkMode, setDarkMode }) {
     return (
         <nav>

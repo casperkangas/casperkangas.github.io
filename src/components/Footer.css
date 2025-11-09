@@ -1,0 +1,18 @@
+footer {
+  margin-top: auto;
+  padding: 1rem 2rem;
+  background-color: var(--footer-bg-color);
+  color: var(--footer-text-color);
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 2px solid var(--footer-border-color);
+  transition: all 0.3s ease;
+}
+
+footer a {
+  color: var(--accent-color);
+}
+
+footer a:hover {
+  color: var(--accent-color-dark);
+}
