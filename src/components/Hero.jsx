@@ -1,6 +1,6 @@
 import "./Hero.css";
-import ProfilePic from "../assets/profile-placeholder.png";
-import CVFile from "../assets/CV.pdf"; // Place your CV in /src/assets/CV.pdf
+import ProfilePic from "../assets/CV-pic.png";
+import CVFile from "../assets/CV.pdf";
 
 export default function Hero() {
   return (

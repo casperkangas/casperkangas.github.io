@@ -28,3 +28,19 @@
 .project-card:hover {
   transform: translateY(-3px);
 }
+
+.project-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color, #007bff);
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.project-link:hover {
+  opacity: 0.85;
+}
