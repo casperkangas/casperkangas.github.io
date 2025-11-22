@@ -1,4 +1,4 @@
-import "./Hero.css";
+import "../styles/Hero.css";
 import ProfilePic from "../assets/CV-pic.png";
 import CVFile from "../assets/CV.pdf";
 

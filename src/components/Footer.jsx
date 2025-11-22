@@ -1,11 +1,11 @@
-import "./Footer.css";
+import "../styles/Footer.css";
 
 export default function Footer() {
   return (
     <footer>
       <p>© 2025 Casper Kangas</p>
       <p>
-        <a href="mailto:casperkangas@gmail.com" style={{ color: "#ffffff", textDecoration: "none" }}>Email Me</a> | 
+        <a href="mailto:casperkangas@gmail.com" style={{ color: "#ffffff", textDecoration: "none" }}>Email Me</a> |
         <a href="https://github.com/casperkangas" style={{ color: "#ffffff", textDecoration: "none", marginLeft: "0.5rem" }}>GitHub</a>
       </p>
     </footer>

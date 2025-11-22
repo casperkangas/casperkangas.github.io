@@ -1,12 +1,14 @@
-import "./Projects.css";
+import "../stylesnp/Projects.css";
 
 export default function Projects() {
   const projectList = [
-    { title: "Medicine App",
+    {
+      title: "Medicine App",
       description: "A simple medicine reminder app built with React CSS.",
       link: "https://casperkangas.github.io/medicine-app/"
     },
-    { title: "Placeholder Project",
+    {
+      title: "Placeholder Project",
       description: "Placeholder description.",
       link: null
     },
@@ -21,10 +23,10 @@ export default function Projects() {
           <p>{project.description}</p>
           {/* Link only if provided */}
           {project.link && (
-            <a 
-              href={project.link} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="project-link"
             >
               View Project
