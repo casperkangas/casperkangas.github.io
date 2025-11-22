@@ -3,14 +3,12 @@ import "./Projects.css";
 export default function Projects() {
   const projectList = [
     { title: "Medicine App",
-      description: "A medicine reminder app built with React and classic CSS.",
+      description: "A simple medicine reminder app built with React CSS.",
       link: "https://casperkangas.github.io/medicine-app/"
     },
-    { title: "Vite Portfolio Starter",
-      description: "Starter portfolio using Vite + React.",
-    },
-    { title: "Hardware Project Placeholder",
-      description: "Example hardware project with placeholder content."
+    { title: "Placeholder Project",
+      description: "Placeholder description.",
+      link: null
     },
   ];
 
