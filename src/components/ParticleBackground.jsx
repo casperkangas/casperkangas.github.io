@@ -1,10 +1,15 @@
 import { useEffect, useRef } from "react";
 
-function ParticleBackground() {
+function ParticleBackground({ isDark }) {
   const canvasRef = useRef(null);
   const glows = useRef([]);
   const animationId = useRef(null);
   const lastPos = useRef(null);
+  const colorRef = useRef(isDark ? "226, 218, 219" : "109, 105, 106");
+
+  useEffect(() => {
+    colorRef.current = isDark ? "226, 218, 219" : "109, 105, 106";
+  }, [isDark]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,19 +24,14 @@ function ParticleBackground() {
 
     const onMouseMove = (e) => {
       const pos = { x: e.clientX, y: e.clientY };
-
       if (!lastPos.current) {
         lastPos.current = pos;
         return;
       }
-
       const dx = pos.x - lastPos.current.x;
       const dy = pos.y - lastPos.current.y;
-
       if (Math.sqrt(dx * dx + dy * dy) < 15) return;
-
       lastPos.current = pos;
-
       glows.current.push({
         x: pos.x,
         y: pos.y,
@@ -45,16 +45,10 @@ function ParticleBackground() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.globalCompositeOperation = "lighten";
-
       glows.current = glows.current.filter((g) => g.age < g.maxAge);
-
       for (const g of glows.current) {
         g.age++;
-        const progress = g.age / g.maxAge;
-
-        // Decay only — no ease-in, always fading from peak
-        const opacity = Math.pow(1 - progress, 1.8) * 0.08;
-
+        const opacity = Math.pow(1 - g.age / g.maxAge, 1.8) * 0.08;
         const gradient = ctx.createRadialGradient(
           g.x,
           g.y,
@@ -63,15 +57,13 @@ function ParticleBackground() {
           g.y,
           g.size,
         );
-        gradient.addColorStop(0, `rgba(226, 218, 219, ${opacity})`);
-        gradient.addColorStop(1, `rgba(226, 218, 219, 0)`);
-
+        gradient.addColorStop(0, `rgba(${colorRef.current}, ${opacity})`);
+        gradient.addColorStop(1, `rgba(${colorRef.current}, 0)`);
         ctx.beginPath();
         ctx.arc(g.x, g.y, g.size, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
         ctx.fill();
       }
-
       ctx.globalCompositeOperation = "source-over";
       animationId.current = requestAnimationFrame(animate);
     };
