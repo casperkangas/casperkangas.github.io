@@ -4,7 +4,7 @@ function ParticleBackground() {
   const canvasRef = useRef(null);
   const glows = useRef([]);
   const animationId = useRef(null);
-  const lastPos = useRef({ x: 0, y: 0 });
+  const lastPos = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -18,20 +18,26 @@ function ParticleBackground() {
     window.addEventListener("resize", resize);
 
     const onMouseMove = (e) => {
-      const dx = e.clientX - lastPos.current.x;
-      const dy = e.clientY - lastPos.current.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
+      const pos = { x: e.clientX, y: e.clientY };
 
-      if (dist < 20) return;
+      if (!lastPos.current) {
+        lastPos.current = pos;
+        return;
+      }
 
-      lastPos.current = { x: e.clientX, y: e.clientY };
+      const dx = pos.x - lastPos.current.x;
+      const dy = pos.y - lastPos.current.y;
+
+      if (Math.sqrt(dx * dx + dy * dy) < 15) return;
+
+      lastPos.current = pos;
 
       glows.current.push({
-        x: e.clientX,
-        y: e.clientY,
+        x: pos.x,
+        y: pos.y,
         size: Math.random() * 40 + 120,
         age: 0,
-        maxAge: 160,
+        maxAge: 200,
       });
     };
     window.addEventListener("mousemove", onMouseMove);
@@ -44,9 +50,10 @@ function ParticleBackground() {
 
       for (const g of glows.current) {
         g.age++;
-
         const progress = g.age / g.maxAge;
-        const opacity = Math.sin(progress * Math.PI) * 0.08;
+
+        // Decay only — no ease-in, always fading from peak
+        const opacity = Math.pow(1 - progress, 1.8) * 0.08;
 
         const gradient = ctx.createRadialGradient(
           g.x,
